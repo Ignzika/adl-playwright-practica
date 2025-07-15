@@ -1,4 +1,5 @@
 const { Before, After, AfterStep, Status } = require('@cucumber/cucumber');
+const LoginPage = require('../step_definitions/pom/LoginPage.js');
 const fs = require('fs');
 const path = require('path');
 // const LoginPage = require('../step_definitions/pom/loginPage');
@@ -7,6 +8,8 @@ const path = require('path');
 Before(async function () {
     // 'this' es una instancia de tu CustomWorld
     await this.init();
+    this.loginPage = new LoginPage(this.page);
+
     const screenshotDir = 'reports/screenshots';
     if (!fs.existsSync(screenshotDir)) {
         fs.mkdirSync(screenshotDir, { recursive: true });
@@ -33,14 +36,15 @@ AfterStep(async function (scenario) {
 });
 
 After(async function (scenario) {
-    if (scenario.result.status === Status.FAILED) {
-        // page.screenshot() sin 'path' devuelve la imagen como un buffer
-        const screenshot = await this.page.screenshot({ fullPage: true });
+    //Solo toma screenshoot cuando falla
+    //if (scenario.result.status === Status.FAILED) {
+    // page.screenshot() sin 'path' devuelve la imagen como un buffer
+    const screenshot = await this.page.screenshot({ fullPage: true });
 
-        // Adjunta la imagen al reporte de Cucumber.
-        // Esto es lo que permite que cucumber-html-reporter la muestre.
-        this.attach(screenshot, 'image/png');
-    }
+    // Adjunta la imagen al reporte de Cucumber.
+    // Esto es lo que permite que cucumber-html-reporter la muestre.
+    this.attach(screenshot, 'image/png');
+    //}
 
     //Grabando video.
     const videoPath = await this.page.video()?.path();

@@ -13,4 +13,15 @@ Feature: Funcionalidad de Login
         And el usuario hace clic en el botón de login
         Then debería ver el mensaje "You logged into a secure area!"
 
+    Scenario: Login fallido con credenciales inválidas
+        When ingresa usuario "pepito" y clave "pepito" y presiona el botón "Login"
+        Then debe permanecer en la página de login
+        And debe ver mensaje de error de credenciales inválidas
+
+    Scenario: Login fallido con alguna credencial vacia
+        When ingresa usuario "pepito2" y clave "" y presiona el botón "Login"
+        Then debe permanecer en la página de login
+        And debe ver mensaje de error de credenciales inválidas
+
+
 
