@@ -1,0 +1,115 @@
+[
+  {
+    "description": "    Como usuario del sistema\n    Quiero poder iniciar sesión en el sitio\n    Para acceder a las funcionalidades protegidas",
+    "elements": [
+      {
+        "description": "",
+        "id": "funcionalidad-de-login;login-exitoso-con-credenciales-válidas",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Login exitoso con credenciales válidas",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 426102208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "que el usuario está en la página de login",
+            "match": {
+              "location": "step_definitions/steps-login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2365186208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "el usuario ingresa el nombre de usuario \"tomsmith\"",
+            "match": {
+              "location": "step_definitions/steps-login.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 46269959
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "el usuario ingresa la contraseña \"SuperSecretPassword!\"",
+            "match": {
+              "location": "step_definitions/steps-login.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39876833
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "el usuario hace clic en el botón de login",
+            "match": {
+              "location": "step_definitions/steps-login.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 345882750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "debería ver el mensaje \"You logged into a secure area!\"",
+            "match": {
+              "location": "step_definitions/steps-login.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17174125
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 28253957
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login-practica",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "funcionalidad-de-login",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Funcionalidad de Login",
+    "tags": [
+      {
+        "name": "@login-practica",
+        "line": 1
+      }
+    ],
+    "uri": "features/login.feature"
+  }
+]
